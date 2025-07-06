@@ -1,11 +1,15 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server/index.js", "use": "@vercel/node" },
-    { "src": "client/package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
+    {
+      "src": "banckand/server.js",
+      "use": "@vercel/node"
+    }
   ],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/server/index.js" },
-    { "source": "/(.*)", "destination": "/client/dist/index.html" }
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "banckand/server.js"
+    }
   ]
 }
